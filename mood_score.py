@@ -20,8 +20,8 @@ def mood_score(mood, city):
 
     # TODO handle keywords
     keywords = {}
-    keywords['happy'] = set(Path('happy_keywords').read_text(encoding='utf8').split(','))
-    keywords['angry'] = set(Path('angry_keywords').read_text(encoding='utf8').split(','))
+    keywords['happy'] = set(Path('happy_keywords.csv').read_text(encoding='utf8').split(','))
+    keywords['angry'] = set(Path('angry_keywords.csv').read_text(encoding='utf8').split(','))
 
     tweets = load_tweets(city)
 
