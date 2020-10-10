@@ -44,9 +44,9 @@ def tweet_search(api, city, number_of_tweets, language='sv'):
         print(idx, tweet.full_text)
     return tweets
 
-
+quit()
 # TODO For sprint 1
 twitter_api = twitter_connect()
 tweets = tweet_search(twitter_api, 'östersund', 1000)
-with open("tweets_ostersund_1000.p", "wb") as f:
+with open("fallback-tweets/tweets_ostersund_1000.p", "wb") as f:
     pickle.dump(tweets, f)

@@ -8,7 +8,7 @@ def load_tweets(city):
     city = city.lower()
     city = city.replace("å", "a").replace("ä", "a").replace("ö", "o")
     try:
-        with open(f"tweets_{city}_1000.p", "rb") as f:
+        with open(f"fallback-tweets/tweets_{city}_1000.p", "rb") as f:
             tweets = pickle.load(f)
             return tweets
     except FileNotFoundError:
@@ -20,8 +20,8 @@ def mood_score(mood, city):
 
     # TODO handle keywords
     keywords = {}
-    keywords['happy'] = set(Path('happy_keywords.csv').read_text(encoding='utf8').split(','))
-    keywords['angry'] = set(Path('angry_keywords.csv').read_text(encoding='utf8').split(','))
+    keywords['happy'] = set(Path('keywords/happy_keywords.csv').read_text(encoding='utf8').split(','))
+    keywords['angry'] = set(Path('keywords/angry_keywords.csv').read_text(encoding='utf8').split(','))
 
     tweets = load_tweets(city)
 
