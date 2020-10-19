@@ -34,6 +34,10 @@ def sentiment_analysis(keyword, language, file_name='', live=False):
         If something went wrong and it wasn't possible to retrieve tweets return None. """
 
     tweets = get_tweets(keyword=keyword, language=language, live=live, file_name=file_name, file_path='demo-tweets')
+
+    if not tweets:
+        return None
+
     tweet_blob = "\n\n".join(tweets)
 
     most_positive_tweet, most_negative_tweet = get_tweets_with_highest_sentiment_score(tweets, language)

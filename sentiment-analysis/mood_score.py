@@ -16,7 +16,6 @@ def calc_mood_score(mood, city, live=False):
     The mood score is returned as an integer. If something goes wrong and no tweets are retrieved or the
     keyword files are unable to be located None is returned. """
 
-    # TODO add sad_keywords.csv and loving_keywords.csv in folder keywords
     keywords = {}
     try:
         for file in os.listdir('keywords'):
@@ -29,6 +28,9 @@ def calc_mood_score(mood, city, live=False):
     file_name_city = city_lower.replace("å", "a").replace("ä", "a").replace("ö", "o")
 
     tweets = get_tweets(city=city, live=live, file_path='fallback-tweets', file_name=f'tweets_{file_name_city}.p')
+
+    if not tweets:
+        return None
 
     tweets_with_mood_content = 0
     for idx, tweet in enumerate(tweets):

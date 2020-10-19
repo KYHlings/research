@@ -47,6 +47,10 @@ def mood_analysis(city, live=False):
     file_name_city = city_lower.replace("å", "a").replace("ä", "a").replace("ö", "o")
 
     tweets = get_tweets(city=city, live=live, file_path='fallback-tweets', file_name=f'tweets_{file_name_city}.p')
+
+    if not tweets:
+        return None
+
     cleaned_tweets = clean_tweets(tweets)
 
     """ Read emotion categories and emotion words from file """
