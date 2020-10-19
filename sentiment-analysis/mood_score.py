@@ -40,8 +40,6 @@ def calc_mood_score(mood, city, live=False):
     #print("number of tweets with mood content:", tweets_with_mood_content)
 
     # TODO change how mood score is used in update_max_health_by_city_mood!
-    mood_score = tweets_with_mood_content
-
     x = tweets_with_mood_content / len(tweets)
     if x < 0.15:
         k = 150 / 0.15
@@ -53,4 +51,5 @@ def calc_mood_score(mood, city, live=False):
     return int(mood_score)
 
 
-calc_mood_score(mood="happy", city="göteborg", live=False)
+if __name__ == '__main__':
+    calc_mood_score(mood="happy", city="göteborg", live=False)

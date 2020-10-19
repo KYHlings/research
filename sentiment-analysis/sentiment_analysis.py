@@ -86,11 +86,11 @@ def sentiment_analysis(keyword, language, file_name='', live=False):
     plt.show()
 
     if positive_score > negative_score:
-        return "positive"
+        return "positivt"
     elif positive_score < negative_score:
-        return "negative"
+        return "negativt"
     else:
-        return "neutral"
+        return "neutralt"
 
 
 def get_tweets_with_highest_sentiment_score(tweets, language):
@@ -121,5 +121,5 @@ def get_tweets_with_highest_sentiment_score(tweets, language):
 
     return most_pos['tweet'], most_neg['tweet']
 
-
-sentiment_analysis(keyword="covid", language="english", file_name='demo_tweets_english_covid.p', live=False)
+if __name__ == '__main__':
+    sentiment_analysis(keyword="covid", language="english", file_name='demo_tweets_english_covid.p', live=False)

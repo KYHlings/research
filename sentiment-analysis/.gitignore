@@ -1,2 +1,4 @@
 keys.txt
 .idea
+venv
+*.pyc

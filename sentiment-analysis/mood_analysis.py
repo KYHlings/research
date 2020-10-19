@@ -16,6 +16,7 @@ from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 import operator
 
+text_emotions = {"arg": 0, "glad": 0, "ledsen": 0, "kärleksfull": 0}
 
 def clean_tweets(tweets):
     """ Make tweets lowercase, remove punctuations, newlines and @username calls. Tokenize the tweet content. """
@@ -67,11 +68,11 @@ def mood_analysis(city, live=False):
 
     # Count number of occurrences of emotion words in the text
     # If "vivacious" is in the text two times - make sure it counts as two
-    text_emotions = {"arg": 0, "glad": 0, "ledsen": 0, "kärleksfull": 0}
+    #text_emotions = {"arg": 0, "glad": 0, "ledsen": 0, "kärleksfull": 0}
     for word in cleaned_tweets:
         for emotion_category in emotions:
             if word in emotions[emotion_category]:
-                print(word)
+                #print(word)
                 text_emotions[emotion_category] += 1
 
     most_frequent_emotion_value = max(text_emotions.items(), key=operator.itemgetter(1))[1]
@@ -93,5 +94,5 @@ def mood_analysis(city, live=False):
 
     return most_frequent_emotions
 
-
-mood_analysis(city="östersund", live=False)
+if __name__ == '__main__':
+    mood_analysis(city="östersund", live=False)
