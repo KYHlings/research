@@ -66,7 +66,7 @@ def sentiment_analysis(keyword, language, file_name='', live=False):
         # print(number_of_tweets)
 
     elif language == "swedish":
-        sentiment_score = SentimentIntensityAnalyzerSwedish().polarity_scores(tweets)
+        sentiment_score = SentimentIntensityAnalyzerSwedish().polarity_scores(tweet_blob)
 
     """ Visualize the result as a bar graph """
     negative_score = sentiment_score['neg']

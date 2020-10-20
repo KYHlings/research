@@ -23,6 +23,8 @@ def twitter_demo():
     city_list = list(geocodes)
     city = city_list[city_choice - 1]
 
+    print("Det här kan ta en liten stund... Vänligen vänta. :)")
+
     mood_score = calc_mood_score("happy", city, live=False)
 
     x = f" ... Beräknar humör för invånarna i {city.capitalize()} ..."
@@ -74,6 +76,8 @@ def twitter_demo():
     emotion_choice = int(input(f"Vilken känsla är mest förekommande i {city.capitalize()}? (1-{len(text_emotions)}): "))
     emotion_list = list(text_emotions)
     emotion = emotion_list[emotion_choice - 1]
+
+    print("Det här kan ta en liten stund... Vänligen vänta. :)")
 
     most_frequent_emotions = mood_analysis(city=city, live=False)
 
